@@ -56,13 +56,35 @@ public class EmployeeController {
     "attributes": "{\"department\": \"IT\", \"position\": \"Developer\"}"
     }
 
- */
 
-/*
+// ***    Retrieving position,department only
+
+
     SELECT
-    attributes->>'position' AS position,
-    attributes->>'department' AS department
-FROM
-    employees;
+        attributes->>'position' AS position,
+        attributes->>'department' AS department
+    FROM
+        employees;
+
+
+
+ //###  Retrieving all details with positon,department
+
+    SELECT
+        id,
+        name,
+        location,
+        email,
+        attributes->>'position' AS position,
+        attributes->>'department' AS department
+    FROM
+        employees;
+
+
+//##   updating one employee detail using id
+
+    UPDATE employees
+        SET attributes = jsonb_set(attributes, '{position}', '"Senior Developer"')
+        WHERE id = 1;
 
  */
