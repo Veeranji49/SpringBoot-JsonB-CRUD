@@ -70,13 +70,15 @@ public class EmployeeController {
 
  //###  Retrieving all details with positon,department
 
-    SELECT
+     SELECT
         id,
         name,
         location,
         email,
         attributes->>'position' AS position,
-        attributes->>'department' AS department
+        attributes->>'department' AS department,
+		attributes->>'age' AS age,
+		attributes->>'salary' AS salary
     FROM
         employees;
 
