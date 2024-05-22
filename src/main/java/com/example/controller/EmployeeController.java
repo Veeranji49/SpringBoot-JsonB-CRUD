@@ -29,9 +29,10 @@ public class EmployeeController {
     }
 
     @DeleteMapping(value="/delete-employee/{id}")
-    public ResponseEntity<Void> deleteEmployee(@PathVariable long id) {
+    public ResponseEntity<String> deleteEmployee(@PathVariable long id) {
         employeeService.deleteEmployee(id);
-        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        String msg = "Employee with id " + id + " deleted successfully";
+        return new ResponseEntity<>(msg,HttpStatus.OK);
     }
 
     @GetMapping(value="/getone-employee/{id}")
